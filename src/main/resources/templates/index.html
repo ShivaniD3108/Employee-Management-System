@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: url("images/bg.jpg") #030728 no-repeat center;
+            background-size: cover;
+            color: #fff;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .wrapper {
+            overflow: hidden;
+            max-width: 1200px;
+            margin: 0 70px 55px;
+        }
+
+        .card-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card-item {
+            flex: 1;
+            min-width: 200px;
+            color: #fff;
+            user-select: none;
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            backdrop-filter: blur(30px);
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .user-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 3px solid #fff;
+            padding: 4px;
+        }
+
+        .card-item a {
+            font-size: 1.25rem;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 35px;
+            background: #030728;
+            border: 1px solid #fff;
+            border-radius: 6px;
+            transition: 0.2s ease;
+            text-align: center;
+        }
+
+        .card-item a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #fff;
+        }
+
+        @media (max-width: 768px) {
+            .wrapper {
+                margin: 0 10px 40px;
+            }
+
+            .card-list {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<h1>Employee Management System</h1>
+<div class="wrapper">
+    <div class="card-list">
+        <div class="card-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2msQaQjGeSnmx074DfaY2rTSCUPsNfYAv_tvALVz_ETygBRB-eoQn5F2Ecyhs1dIUB8w&usqp=CAU" alt="Database Image" class="user-image">
+            <a href="/employee/displayList">DATABASE</a>
+        </div>
+        <div class="card-item">
+            <img src="https://cdn-icons-png.flaticon.com/512/12930/12930811.png" alt="Add Employee Image" class="user-image">
+            <a href="/employee/addEmployee">ADD NEW EMPLOYEE</a>
+        </div>
+        <div class="card-item">
+            <img src="https://static.vecteezy.com/system/resources/previews/033/490/823/original/magnifier-glass-search-among-employee-icon-for-employee-development-recruitment-free-png.png" alt="Search by ID Image" class="user-image">
+            <a href="/employee/search">SEARCH BY ID</a>
+        </div>
+        <div class="card-item">
+            <img src="https://www.winwire.com/wp-content/uploads/2023/11/Untitled-design-33-1.webp" alt="Update Details Image" class="user-image">
+            <a href="/employee/update">UPDATE DETAILS</a>
+        </div>
+        <div class="card-item">
+            <img src="https://media.istockphoto.com/id/1296846625/vector/delete-concept-tiny-woman-deleting-data-on-smartphone-move-unnecessary-files-to-the-trash.jpg?s=612x612&w=0&k=20&c=NJauIydcsykbzAtkt_tgJy-mVIk0KiKeIzv2W-hITUI=" alt="Delete Data Image" class="user-image">
+            <a href="/employee/delete">DELETE SPECIFIC DATA</a>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

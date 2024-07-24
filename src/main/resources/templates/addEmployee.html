@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NEW EMPLOYEE DETAILS</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            margin: 0;
+            color: #6a6f8c;
+            background: #c8c8c8;
+            font: 600 16px/18px 'Open Sans', sans-serif;
+            background: url(https://content.presentermedia.com/files/clipart/00022000/22348/simple_office_desk_800_wht.jpg) no-repeat center;
+        }
+        .background {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            padding: 90px 70px 50px 390px;
+            background: rgba(40, 57, 101, .9);
+        }
+        .group {
+            margin-bottom: 15px;
+        }
+        .group label,
+        .group input,
+        .group button {
+            width: 50%;
+            color: #fff;
+            display: block;
+
+        }
+        .group input,
+        .group button {
+            border: none;
+            padding: 15px 20px ;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, .1);
+        }
+        .group label {
+            color: #aaa;
+            font-size: 12px;
+        }
+        .group button {
+            background: #1161ee;
+            cursor: pointer;
+        }
+        .error {
+            color: #ff0000;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="background">
+    <div class="content">
+        <form th:action="@{/employee/addEmployee}" th:object="${users}" method="post">
+            <div class="group">
+                <label for="firstName">Enter your First Name</label>
+                <input type="text" id="firstName" name="firstName" th:field="*{firstName}" required>
+                <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="error"></span>
+            </div>
+            <div class="group">
+                <label for="lastName">Enter your Last Name</label>
+                <input type="text" id="lastName" name="lastName" th:field="*{lastName}" required>
+                <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="error"></span>
+            </div>
+            <div class="group">
+                <label for="email">Enter email</label>
+                <input type="email" id="email" name="email" th:field="*{email}" required>
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></span>
+            </div>
+            <div class="group">
+                <br>
+                <button type="submit" class="btn">Submit</button>
+                <br>
+                <br>
+                <button type="button" class="btn" onclick="history.back()">Back</button>
+                <br>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

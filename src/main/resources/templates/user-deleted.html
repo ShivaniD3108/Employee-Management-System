@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>DELETE SUCCESSFUL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #f5f5f5;
+            margin: 0;
+        }
+        .popup {
+          width: 33.333333%;
+          padding: 15px;
+          left: 0;
+          margin-left: 33.333333%;
+          border: 1px solid #ccc;
+          border-radius: 10px;
+          background: white;
+          position: absolute;
+          top: 15%;
+          box-shadow: 5px 5px 5px #000;
+          z-index: 10001;
+        }
+        .popup .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .text-right {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<div class="popup">
+    <p> Confirm deletion</p>
+    <div class="text-right">
+        <form th:action="@{/employee/deleteDetails/{id}(id=${users.id})}" method="post">
+            <button type="submit">Delete</button>
+            <button onclick="location.href='/employee/displayList'">Cancel</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

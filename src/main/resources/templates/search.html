@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<style>
+    .background {
+        height: 100vh;
+        background-image: url("https://images.contentstack.io/v3/assets/bltac01ee6daa3a1e14/bltceccafa080ae38fd/640772a1e6f7e310668598f9/img_blog_BP-RK-Full-Text-Search-in-SingleStore_social.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.8;
+    }
+
+    .content {
+        position: absolute;
+        top: 203px;
+        left:450px;
+        background: rgba(255, 255, 255, 0.4);
+        padding: 12px 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 530px;
+        text-align: center;
+        background-color: #F0FFF0;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        color: brown;
+        font-size: 16px;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    a {
+        position: absolute;
+        top: 440px;
+        display: block;
+        margin-top: 20px;
+        padding: 15px 10px;
+        color: black;
+        text-decoration: none;
+        font-size: 20px;
+        transition: color 0.3s;
+    }
+
+    a:hover {
+        color: #E0FFFF;
+    }
+
+    input[type="text"] {
+        width: 100px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 12px;
+        background-color: white;
+        background-image: url('searchicon.png');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        padding: 5px 6px;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+    }
+
+    input[type="text"]:focus {
+        width: 50%;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Search Employee</title>
+</head>
+<body>
+<div class="background">
+    <div class="content">
+        <h2>Search for an Employee</h2>
+        <form th:action="@{/employee/userid}" method="get">
+            <label for="employeeId">Employee ID:</label>
+            <input type="text" id="employeeId" name="employeeId" placeholder="Search.." required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <a href="/">Back to home</a>
+</div>
+</body>
+</html>

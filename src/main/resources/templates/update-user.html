@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Details</title>
+    <style>
+        html {
+          height: 100%;
+        }
+        .box {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 400px;
+          padding: 40px;
+          transform: translate(-50%, -50%);
+          background: rgba(0,0,0,2);
+          box-sizing: border-box;
+          box-shadow: 0 15px 25px rgba(0,0,0,.6);
+          border-radius: 10px;
+        }
+
+        .box h2 {
+          margin: 0 0 30px;
+          padding: 0;
+          color: #fff;
+          text-align: center;
+        }
+
+        .box .user-box {
+          position: relative;
+        }
+
+        .box .user-box input {
+          width: 100%;
+          padding: 10px 0;
+          font-size: 16px;
+          color: #fff;
+          margin-bottom: 30px;
+          border: none;
+          border-bottom: 1px solid #fff;
+          outline: none;
+          background: transparent;
+        }
+        .box .user-box label {
+          position: absolute;
+          top:0;
+          left: 0;
+          padding: 10px 0;
+          font-size: 16px;
+          color: #fff;
+          pointer-events: none;
+          transition: .5s;
+        }
+
+        .box .user-box input:focus ~ label,
+        .box .user-box input:valid ~ label {
+          top: -20px;
+          left: 0;
+          color: #03e9f4;
+          font-size: 12px;
+        }
+
+        .form a,
+        .form input[type="submit"] {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #03e9f4;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: .5s;
+            margin-top: 20px;
+            letter-spacing: 4px;
+            cursor: pointer;
+            background: transparent;
+            border: 1px solid #03e9f4;
+            border-radius: 5px;
+        }
+
+        .form a:hover,
+        .form input[type="submit"]:hover {
+            background: #03e9f4;
+            color: #fff;
+        }
+
+        button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #03e9f4;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: .5s;
+            letter-spacing: 4px;
+            cursor: pointer;
+            background: transparent;
+            border: 1px solid #03e9f4;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #03e9f4;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box">
+    <h2>Update Details</h2>
+    <div class="form">
+        <form th:action="@{/employee/updateDetails/{id}(id=${users.id})}" th:object="${users}" method="post">
+            <div class="user-box">
+                <input type="text" th:field="*{firstName}" id="firstName" placeholder="First Name" required>
+                <label for="firstName">First Name</label>
+                <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+            </div>
+            <div class="user-box">
+                <input type="text" th:field="*{lastName}" id="lastName" placeholder="Last Name" required>
+                <label for="lastName">Last Name</label>
+                <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+            </div>
+            <div class="user-box">
+                <input type="email" th:field="*{email}" id="email" placeholder="Email" required>
+                <label for="email">Email</label>
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            </div>
+            <input type="submit" value="Update User">
+        </form>
+    </div>
+    <button onclick="location.href='/employee/'">Home</button>
+</div>
+</body>
+
+</html>
